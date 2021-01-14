@@ -9,9 +9,9 @@ import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderSerivce {
 
-    private MemberRepository memberRepository;// = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;// = new MemoryMemberRepository();
     //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
-    private DiscountPolicy discountPolicy;// = new RateDiscountPolicy();
+    private final DiscountPolicy discountPolicy;// = new RateDiscountPolicy();
 
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
@@ -26,5 +26,10 @@ public class OrderServiceImpl implements OrderSerivce {
         int discountPrice = discountPolicy.discount(member, itemPrice);
 
         return new Order(memberId, itemName, itemPrice, discountPrice);
+    }
+
+    // 싱글톤 테스트 용도
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
     }
 }
