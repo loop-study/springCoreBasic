@@ -9,6 +9,7 @@ import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
 import hello.core.order.OrderSerivce;
 import hello.core.order.OrderServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,6 +38,8 @@ public class AppConfig {
     //call AppConfig.memberRepository
     //call AppConfig.orderService
 
+    // @Autowired MemberRepository memberRepository; // 추후에 다룰 예정
+
 //    @Bean(name="mmm") // 관례상 default name 을 사용함.
     @Bean
     public MemberService memberService() {
@@ -61,4 +64,6 @@ public class AppConfig {
 //        return new FixDiscountPolicy();
         return new RateDiscountPolicy();
     }
+
+
 }

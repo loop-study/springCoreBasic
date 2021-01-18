@@ -1,5 +1,7 @@
 package hello.core.member;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -7,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * db 가 안 정해졌으니 임시로 메모리로 사용함.
  */
+@Component
 public class MemoryMemberRepository implements MemberRepository {
 
     // 동시성 이슈 때문에 ConcurrentHashMap 가 맞다.
