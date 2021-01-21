@@ -32,4 +32,15 @@ public class OrderSerivceTest {
         Order order = orderSerivce.createOrder(memberId, "itemA", 10000);
         Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
     }
+
+    // 필드 주입 방식 - 테스트가 안된다.
+    // setter 를 만들어야 테스트가 가능해짐.
+//    @Test
+//    void fieldInjectionTest() {
+//        OrderServiceImpl orderService = new OrderServiceImpl();
+//        orderService.setMemberRepository(new MemoryMemberRepository());
+//        orderService.setDiscountPolicy(new RateDiscountPolicy());
+
+//        orderService.createOrder(1L, "itemA", 10000); // null 에러 발생
+//    }
 }
